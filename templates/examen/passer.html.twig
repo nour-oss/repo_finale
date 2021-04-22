@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+		<center></center>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7" style="background-color:#D8D8D8; border-radius: 25px;">
+					<center>
+						<h1>Examen :</center>
+					</h1>
+					<form action="{{ path('note', {'id' : examen.id}) }}" method="post" style="padding-top:10px; padding-bottom:10px;">
+						{% for question in questions %}
+							<h3>{{i}})-{{question.question}}</h3>
+							:
+							<br>
+							{% for reponse in reponses %}
+								{% if reponse.idQuestion == question %}
+									<input type="radio" name="rep{{i}}" value={{reponse.vrai}}>
+									<label for="">{{reponse.reponse}}</label><br>
+								{% endif %}
+							{% endfor %}
+
+							{% set i = i+1 %}
+						{% endfor %}
+						<input type="text" name="res" id="res" hidden>
+						<center><input type="submit" value="Valider" onclick="f({{n}})" class="btn btn-success"></center>
+					</form>
+				</div>
+				<div class="col-md-5" style="height:200px; width:200px;">
+					<img src="https://assets.goodfirms.co/blog/general/1566798061-exam-online.jpg" alt="" style="border-radius:25px;" height:="400px" width="400px">
+				</div>
+			</div>
+
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<script>
+			function f(x) {
+var res = document.getElementById('res');
+var k = 0;
+for (let i = 0; i < x; i++) {
+l = i + 1;
+name = "rep" + l;
+
+var e = document.getElementsByName(name);
+
+if (e.length != 0) {
+
+for (let j = 0; j < e.length; j++) {
+
+if (e[j].checked) 
+if (e[j].value == "yes") 
+k = k + 1;
+
+
+
+
+}
+}
+}
+
+res.value = k;
+
+
+}
+		</script>
+	{% endblock %}

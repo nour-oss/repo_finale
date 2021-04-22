@@ -1,0 +1,7 @@
+Bonjour,
+
+{% if note >= 80 %}
+    Félicitations , vous avez réussi votre examen , votre score est {{note}}
+    {% else %}
+        Malheuresement , vous avez echoué , votre score est {{note}} < 80% 
+{% endif %}

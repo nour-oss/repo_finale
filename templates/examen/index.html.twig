@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des Examens {% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    
+    <h1>Examen index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>FormationId</th>
+                <th>Description</th>
+                <th>Passer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for examan in examens %}
+            <tr>
+                
+                <td>{{ examan.formationId }}</td>
+                <td>{{ examan.description }}</td>
+                <td>
+                    <a href="{{ path('qcm', {'id': examan.id}) }}" class="btn btn-danger">Passer</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+
+    
+{% endblock %}

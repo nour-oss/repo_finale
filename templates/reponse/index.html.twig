@@ -1,0 +1,46 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Reponse index
+{% endblock %}
+
+{% block body %}
+	<h1>Reponse index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+                <th>Question</th>
+				<th>Reponse</th>
+				<th>Vrai</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for reponse in reponses %}
+				<tr>
+					<td>{{ reponse.id }}</td>
+                    <td>{{reponse.idQuestion.id}}</td>
+					<td>{{ reponse.reponse }}</td>
+					<td>
+						{% if reponse.vrai == "yes" %}
+							oui
+						{% else %}
+							non
+						{% endif %}
+					</td>
+					<td>
+						<a href="{{ path('reponse_edit', {'id': reponse.id}) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+						<a href="{{ path('reponse_edit', {'id': reponse.id}) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	
+{% endblock %}
