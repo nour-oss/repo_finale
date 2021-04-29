@@ -1,4 +1,45 @@
 {% extends "base.html.twig" %}
+{% block nav %}
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html">
+					<img src="images/logo.png" alt="" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="{{ path('home') }}">Home</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formations </a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								{% for form in forms %}
+								<a class="dropdown-item" href="{{ path('passer',{'id' : form.id}) }}">{{ form.titre }}</a>
+								{% endfor %}
+							</div>
+
+						</li>
+
+                        						<li class="nav-item active">
+							{% for locale in locales %}
+    {% if locale != app.request.locale %}
+        <a class="nav-link" href="{{ path('change_locale', {'locale': locale}) }}"><img src="{{ asset('images/'~locale~'.png') }}" alt="{{locale}}" height="50px" width="50px"></a>
+    {% endif %}
+{% endfor %}
+						</li>
+						
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+	
+{% endblock %}
 {% block body %}
     	<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" >
 		<!-- Indicators -->
@@ -15,11 +56,11 @@
 							<div class="row">
 								<div class="col-md-12 col-sm-12 text-right">
 									<div class="big-tagline">
-										<h2><strong>SmartEDU </strong> education College</h2>
-										<p class="lead">With Landigoo responsive landing page template, you can promote your all hosting, domain and email services. </p>
-											<a href="#" class="hover-btn-new"><span>Contact Us</span></a>
+										<h2><strong>SmartEDU </strong> {% trans %}education College {% endtrans %}</h2>
+										<p class="lead">{% trans %} With Landigoo responsive landing page template, you can promote your all hosting, domain and email services. {% endtrans %}</p>
+											<a href="#" class="hover-btn-new"><span>{% trans %}Contact Us {% endtrans %}</span></a>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="#" class="hover-btn-new"><span>Read More</span></a>
+											<a href="#" class="hover-btn-new"><span>{% trans %}Read More {% endtrans %}</span></a>
 									</div>
 								</div>
 							</div><!-- end row -->            
@@ -34,11 +75,11 @@
 							<div class="row">
 								<div class="col-md-12 col-sm-12 text-left">
 									<div class="big-tagline">
-										<h2 data-animation="animated zoomInRight">SmartEDU <strong>education school</strong></h2>
-										<p class="lead" data-animation="animated fadeInLeft">With Landigoo responsive landing page template, you can promote your all hosting, domain and email services. </p>
+										<h2 data-animation="animated zoomInRight">SmartEDU <strong>{% trans %} education school{% endtrans %}</strong></h2>
+										<p class="lead" data-animation="animated fadeInLeft">{% trans %}With Landigoo responsive landing page template, you can promote your all hosting, domain and email services.  {% endtrans %}</p>
 											<a href="#" class="hover-btn-new"><span>Contact Us</span></a>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="#" class="hover-btn-new"><span>Read More</span></a>
+											<a href="#" class="hover-btn-new"><span>{% trans %} Read More{% endtrans %}</span></a>
 									</div>
 								</div>
 							</div><!-- end row -->            
@@ -53,13 +94,13 @@
 							<div class="row">
 								<div class="col-md-12 col-sm-12 text-center">
 									<div class="big-tagline">
-										<h2 data-animation="animated zoomInRight"><strong>VPS Servers</strong> Company</h2>
-										<p class="lead" data-animation="animated fadeInLeft">1 IP included with each server 
+										<h2 data-animation="animated zoomInRight"><strong>{% trans %} VPS Servers{% endtrans %}</strong> Company</h2>
+										<p class="lead" data-animation="animated fadeInLeft">{% trans %}1 IP included with each server 
 											Your Choice of any OS (CentOS, Windows, Debian, Fedora)
-											FREE Reboots</p>
-											<a href="#" class="hover-btn-new"><span>Contact Us</span></a>
+											FREE Reboots {% endtrans %}</p>
+											<a href="#" class="hover-btn-new"><span>{% trans %}Contact Us {% endtrans %}</span></a>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="#" class="hover-btn-new"><span>Read More</span></a>
+											<a href="#" class="hover-btn-new"><span>{% trans %} Read More{% endtrans %}</span></a>
 									</div>
 								</div>
 							</div><!-- end row -->            

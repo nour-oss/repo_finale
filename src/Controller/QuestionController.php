@@ -78,6 +78,9 @@ class QuestionController extends AbstractController
         $form = $this->createForm(QuestionType::class, $question);
         $form->handleRequest($request);
         $examens = $this->getDoctrine()->getRepository(Examen::class)->findAll();
+        $forms = $this->getDoctrine()
+        ->getRepository(Formation::class)
+        ->findAll();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
@@ -93,15 +96,15 @@ class QuestionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="question_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="question_delete")
      */
     public function delete(Request $request, Question $question): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {
+        
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($question);
             $entityManager->flush();
-        }
+        
 
         return $this->redirectToRoute('question_index');
     }

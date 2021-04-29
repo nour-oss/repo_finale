@@ -35,7 +35,7 @@ class Examen
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="Veuillez remplir ce champ")
      */
     private $description;
 

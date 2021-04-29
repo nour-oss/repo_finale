@@ -1,7 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Liste des Examens {% endblock %}
+{% block nav %}
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html">
+					<img src="images/logo.png" alt="" />
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active"><a class="nav-link" href="{{ path('home') }}">Home</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Formations </a>
+							<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								{% for form in forms %}
+								<a class="dropdown-item" href="{{ path('passer',{'id' : form.id}) }}">{{ form.titre }}</a>
+								{% endfor %}
+							</div>
 
+						</li>
+
+                        						<li class="nav-item active">
+							{% for locale in locales %}
+    {% if locale != app.request.locale %}
+        <a class="nav-link" href="{{ path('change_locale', {'locale': locale}) }}"><img src="{{ asset('images/'~locale~'.png') }}" alt="{{locale}}" height="50px" width="50px"></a>
+    {% endif %}
+{% endfor %}
+						</li>
+						
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+	
+{% endblock %}
 {% block body %}
 <div class="container">
     <div class="row">
@@ -11,26 +51,23 @@
     <table class="table">
         <thead>
             <tr>
-                
-                <th>FormationId</th>
-                <th>Description</th>
-                <th>Passer</th>
+                <th>{% trans %}Description{% endtrans %}</th>
+                <th>{% trans %}Pass{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
         {% for examan in examens %}
             <tr>
                 
-                <td>{{ examan.formationId }}</td>
                 <td>{{ examan.description }}</td>
                 <td>
-                    <a href="{{ path('qcm', {'id': examan.id}) }}" class="btn btn-danger">Passer</a>
+                    <a href="{{ path('qcm', {'id': examan.id}) }}" class="btn btn-danger">{% trans %}Pass{% endtrans %}</a>
                     
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>

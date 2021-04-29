@@ -25,9 +25,13 @@ class ExamenController extends AbstractController
         $examens = $this->getDoctrine()
             ->getRepository(Examen::class)
             ->findAll();
+            $forms = $this->getDoctrine()
+            ->getRepository(Formation::class)
+            ->findAll();
 
         return $this->render('examen/index.html.twig', [
             'examens' => $examens,
+            'forms' => $forms
         ]);
     }
 
@@ -50,8 +54,10 @@ class ExamenController extends AbstractController
      */
     public function passer($id){
         $examens = $this->getDoctrine()->getRepository(Examen::class)->findBy(['formationId' =>$id]);
+        $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
         return $this->render("examen/index.html.twig",[
-            'examens' =>$examens
+            'examens' =>$examens,
+            'forms' => $forms
         ]);
     }
 
@@ -63,6 +69,7 @@ class ExamenController extends AbstractController
         
         
         $reponses = $this->getDoctrine()->getRepository(Reponse::class)->findAll();
+        $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
         
         
         return $this->render("examen/passer.html.twig",[
@@ -70,7 +77,8 @@ class ExamenController extends AbstractController
             'reponses' => $reponses,
             'examen' =>$examen,
             'i' => 1,
-            'n' => count($questions)
+            'n' => count($questions),
+            'forms' => $forms
         ]);
     }
 
@@ -85,7 +93,7 @@ class ExamenController extends AbstractController
         $qts= $examen->getQuestion();
         $x = $note;
         $note = ($note/count($qts))*100;
-
+        $forms = $this->getDoctrine()->getRepository(Formation::class)->findAll();
         
         $message = (new \Swift_Message('Hello Email'))
                 ->setFrom('marvelamir@gmail.com')
@@ -104,7 +112,8 @@ class ExamenController extends AbstractController
             $mailer->send($message);
         return $this->render("examen/note.html.twig",[
             'note' => $note,
-            'x' => $x
+            'x' => $x,
+            'forms' => $forms
         ]);
     }
     /**
@@ -164,31 +173,35 @@ class ExamenController extends AbstractController
     {
         $form = $this->createForm(ExamenType::class, $examan);
         $form->handleRequest($request);
-        $formations = $this->getDoctrine()->getRepository(Question::class)->findAll();
+        $formations = $this->getDoctrine()->getRepository(formation::class)->findAll();
+        $questions = $this->getDoctrine()->getRepository(Question::class)->findAll();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('examen_index');
+            return $this->redirectToRoute('examen_index1');
         }
 
         return $this->render('examen/edit.html.twig', [
             'examan' => $examan,
             'form' => $form->createView(),
-            'formation' => $formations
+            'formations' => $formations,
+            'n' => count($questions),
+            'i' => 0,
+            'questions' => $questions
         ]);
     }
 
     /**
-     * @Route("/{id}", name="examen_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="examen_delete")
      */
     public function delete(Request $request, Examen $examan): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $examan->getId(), $request->request->get('_token'))) {
+        
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($examan);
             $entityManager->flush();
-        }
+        
 
         return $this->redirectToRoute('examen_index');
     }

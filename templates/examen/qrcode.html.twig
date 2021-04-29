@@ -24,7 +24,6 @@
 							</div>
 
 						</li>
-
                         						<li class="nav-item active">
 							{% for locale in locales %}
     {% if locale != app.request.locale %}
@@ -41,18 +40,19 @@
 	
 {% endblock %}
 {% block body %}
-<br>
-<br>
-<br>
-<br>
-<br>
-    <h1>{% trans %}Your score is {% endtrans %} {{ note }}%</h1>
-    <p>{% trans %}You answered{% endtrans %} <span style="color:green;"> {{ x }} </span>{% trans %}correct{% endtrans %} question(s).</p>
-
-    <a href="{{ path('qrcode',{'note' : note}) }}" class="btn btn-success">Générer</a>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" style="background-color:#D8D8D8; border-radius: 25px;">
+        <br>
+        <br>
+            <h1>{% trans %}Your QR code :{% endtrans %} </h1>
+            <p>{% trans %}Scan it to get your score{% endtrans %}</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{{ qrCode }}" alt="" height="300px" width="300px">
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
 {% endblock %}

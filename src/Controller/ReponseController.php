@@ -42,7 +42,7 @@ class ReponseController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) {
             $id = $this->getDoctrine()->getRepository(Question::class)->findOneBy(['question' => $request->request->get('formation')]);
-            $reponse->setIdquestion($id->getId());
+            $reponse->setIdquestion($id);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($reponse);
             $entityManager->flush();
@@ -89,15 +89,15 @@ class ReponseController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="reponse_delete", methods={"POST"})
+     * @Route("/delete/{id}", name="reponse_delete")
      */
     public function delete(Request $request, Reponse $reponse): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$reponse->getId(), $request->request->get('_token'))) {
+        
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($reponse);
             $entityManager->flush();
-        }
+        
 
         return $this->redirectToRoute('reponse_index');
     }

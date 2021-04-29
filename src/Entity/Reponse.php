@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Reponse
@@ -25,6 +26,7 @@ class Reponse
      * @var string
      *
      * @ORM\Column(name="reponse", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Veuillez remplir ce champ")
      */
     private $reponse;
 

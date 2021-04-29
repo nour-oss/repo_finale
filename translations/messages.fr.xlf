@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Acceuil</target>
+      </trans-unit>
+      <trans-unit id="v9RZ85F" resname="About US">
+        <source>About US</source>
+        <target>A propos de nous</target>
+      </trans-unit>
+      <trans-unit id="gss5TFT" resname="Information Link">
+        <source>Information Link</source>
+        <target>Liens d'information</target>
+      </trans-unit>
+      <trans-unit id="jGvAmVN" resname="Blog">
+        <source>Blog</source>
+        <target>__Blog</target>
+      </trans-unit>
+      <trans-unit id="3_lXg_3" resname="Pricing">
+        <source>Pricing</source>
+        <target>Prix</target>
+      </trans-unit>
+      <trans-unit id="Tvyg0Qx" resname="About">
+        <source>About</source>
+        <target>A propos</target>
+      </trans-unit>
+      <trans-unit id="K1w9JnI" resname="Contact">
+        <source>Contact</source>
+        <target>Contactes</target>
+      </trans-unit>
+      <trans-unit id="PoSvYTN" resname="Contact Details">
+        <source>Contact Details</source>
+        <target>Détails contactes</target>
+      </trans-unit>
+      <trans-unit id="BR9Qa5D" resname="All Rights Reserved.">
+        <source>All Rights Reserved.</source>
+        <target>Tous droits réservés</target>
+      </trans-unit>
+      <trans-unit id="o4Nab_8" resname="Design By :">
+        <source>Design By :</source>
+        <target>Désigné par :</target>
+      </trans-unit>
+      <trans-unit id="0JcuzXx" resname="education College">
+        <source>education College</source>
+        <target>Université</target>
+      </trans-unit>
+      <trans-unit id="mLZwY8_" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>Nous contacter</target>
+      </trans-unit>
+      <trans-unit id="wpYC9Hd" resname="Read More">
+        <source>Read More</source>
+        <target>Lire la suite</target>
+      </trans-unit>
+      <trans-unit id="GqMdJG6" resname="education school">
+        <source>education school</source>
+        <target>Ecole</target>
+      </trans-unit>
+      <trans-unit id="8f6IoV8" resname="With Landigoo responsive landing page template, you can promote your all hosting, domain and email services.">
+        <source>With Landigoo responsive landing page template, you can promote your all hosting, domain and email services.</source>
+        <target>Avec le modèle de page de destination réactif Landigoo, vous pouvez promouvoir tous vos services d'hébergement, de domaine et de messagerie.</target>
+      </trans-unit>
+      <trans-unit id="PF.L9KO" resname="VPS Servers">
+        <source>VPS Servers</source>
+        <target>Serveurs VPS</target>
+      </trans-unit>
+      <trans-unit id="ShhDYQc" resname="1 IP included with each server &#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Your Choice of any OS (CentOS, Windows, Debian, Fedora)&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;FREE Reboots">
+        <source>1 IP included with each server 
+											Your Choice of any OS (CentOS, Windows, Debian, Fedora)
+											FREE Reboots</source>
+        <target>1 IP incluse avec chaque serveur
+Votre choix de n'importe quel système d'exploitation (CentOS, Windows, Debian, Fedora)
+Redémarrages GRATUITS</target>
+      </trans-unit>
+      <trans-unit id="7MKnIGs" resname="Your score is">
+        <source>Your score is</source>
+        <target>Votre score est</target>
+      </trans-unit>
+      <trans-unit id="WhYzwnL" resname="You answered">
+        <source>You answered</source>
+        <target>Vous avez repondu sur</target>
+      </trans-unit>
+      <trans-unit id="FaWW48m" resname="correct">
+        <source>correct</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="58mX6EQ" resname="Examen :">
+        <source>Examen :</source>
+        <target>Examen :</target>
+      </trans-unit>
+      <trans-unit id=".plzMiu" resname="&quot;Submit&quot;">
+        <source>"Submit"</source>
+        <target>"valider"</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="69_MwAv" resname="Pass">
+        <source>Pass</source>
+        <target>Passer</target>
+      </trans-unit>
+      <trans-unit id="D5lam8." resname="no records found">
+        <source>no records found</source>
+        <target>Pas de résultats</target>
+      </trans-unit>
+      <trans-unit id="RjeCUH9" resname="Test :">
+        <source>Test :</source>
+        <target>Passer :</target>
+      </trans-unit>
+      <trans-unit id="ETTY1EM" resname="Your QR code :">
+        <source>Your QR code :</source>
+        <target>Votre QR code :</target>
+      </trans-unit>
+      <trans-unit id="R_L97Wx" resname="Scan it to get your score">
+        <source>Scan it to get your score</source>
+        <target>Scannezle pour avoir votre score</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
